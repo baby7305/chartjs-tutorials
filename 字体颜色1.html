@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chartjs</title>
+</head>
+
+<body>
+    <div class="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script>
+        var ctx = document.getElementById("chart")
+        var data = {
+            "labels":
+            ["January","February","March","April","May","June","July"],
+            "datasets":[
+                {
+                    "label":"My First Dataset",
+                    "data":[65,59,80,81,56,55,40],
+                    "fill":false,
+                    "borderColor":"rgb(75, 192, 192)",
+                    "lineTension":0.1
+                }
+            ]
+        }
+        Chart.defaults.global.defaultFontColor = 'red';
+        let chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                legend: {
+                    labels: {
+                        // 这个更具体的字体属性覆盖全局属性
+                        fontColor: 'black'
+                    }
+                }
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>
